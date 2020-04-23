@@ -1,21 +1,13 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1>Our Cars</h1>
-
-<ul class="car-list">
-    {% for car in cars %}
-    <li class="car-list-item">
-        <div class="image">
-            <img src="{{ car.image.url }}" />
+<br>
+<p class ='lead alert alert-success' >Welcome, {{request.user.username}}. Which car are you driving today? </p>
+    {% for car in cars %} 
+        <div class ='card-body' >
+         <img src="{{ car.image.url }}" class="img-fluid" alt="Responsive image">        
+        <p class =' lead alert alert-warning' ><a href="{{ car.get_absolute_url }}">{{ car.name }}</a>      starts from 
+            Kshs. {{ car.daily_rent }} / day</p>
         </div>
-        <div class="name">
-            <a href="{{ car.get_absolute_url }}">{{ car.name }}</a>
-        </div>
-        <div class="rent">
-            kshs{{ car.daily_rent }} / day
-        </div>
-    </li>
-    {% endfor %}
-</ul>
+    {% endfor %} 
 {% endblock %}

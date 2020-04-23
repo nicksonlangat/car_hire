@@ -18,13 +18,10 @@ class Car(models.Model):
 
 class Booking(models.Model):
     car = models.ForeignKey(Car,on_delete=models.CASCADE) 
-
     customer_name = models.CharField(max_length=100)
     customer_email = models.EmailField()
-    customer_phone_number = models.TextField()
-
+    customer_phone_number = models.PositiveIntegerField()
     booking_start_date = models.DateField()
     booking_end_date = models.DateField()
     booking_message = models.TextField()
-
     is_approved = models.BooleanField()

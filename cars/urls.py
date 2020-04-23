@@ -23,6 +23,7 @@ from car.views import HomeView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('accounts/', include('django.contrib.auth.urls')),
     path('accounts/', include('accounts.urls')),
     path('', HomeView.as_view(), name='home'),
     path('car/(P<pk>\d+)/' , CarDetailsView.as_view(), name='car-details'),
